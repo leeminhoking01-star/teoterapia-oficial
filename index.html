@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teoterapia Bíblica</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="fondo-luz"></div>
+
+    <img src="./peto.png" class="logo-imagen" alt="Teoterapia Bíblica">
+
+    <p class="etiqueta">FE • ESPERANZA • VIDA</p>
+
+    <h1>Teoterapia Bíblica</h1>
+
+    <p class="subtitulo">
+        Un espacio para encontrar paz, reflexión y esperanza
+        a través de la Palabra de Dios.
+    </p>
+
+    <button class="hero-button" onclick="document.getElementById('contenido').scrollIntoView({behavior:'smooth'})">
+        Comenzar
+    </button>
+
+</header>
+
+<nav>
+
+    <button onclick="showHome()">Inicio</button>
+
+    <button onclick="window.location.href='noticias.html'">
+        Noticias
+    </button>
+
+    <button onclick="showLogin()">
+        Administrador
+    </button>
+
+</nav>
+
+<main>
+
+    <section id="home">
+
+        <section class="bienvenida">
+
+            <p class="etiqueta azul">BIENVENIDO</p>
+
+            <h2>Un momento para ti y para Dios</h2>
+
+            <p>
+                Teoterapia Bíblica es un espacio creado para
+                acompañarte cada día con mensajes de fe,
+                reflexiones, oración y contenido que pueda
+                ayudarte a encontrar esperanza.
+            </p>
+
+        </section>
+
+
+        <section id="contenido">
+
+            <section class="card imagen-card">
+
+                <p class="etiqueta azul">IMAGEN DEL DÍA</p>
+
+                <h2>Un mensaje para hoy</h2>
+
+                <img id="imagenDia" class="imagen-dia" src="" alt="Imagen del día">
+
+            </section>
+
+
+            <section class="card verse">
+
+                <p class="etiqueta azul">PALABRA DE HOY</p>
+
+                <h2>Versículo del día</h2>
+
+                <div class="versiculo-icono">✦</div>
+
+                <p id="verseText">Cargando...</p>
+
+                <strong id="verseReference"></strong>
+
+            </section>
+
+
+            <section class="card">
+
+                <p class="etiqueta azul">REFLEXIÓN</p>
+
+                <h2>Reflexión del día</h2>
+
+                <p id="reflectionText">Cargando...</p>
+
+            </section>
+
+
+            <section class="card oracion">
+
+                <p class="etiqueta azul">MOMENTO DE ORACIÓN</p>
+
+                <h2>Oración del día</h2>
+
+                <p id="prayerText">Cargando...</p>
+
+            </section>
+
+        </section>
+
+
+        <section class="destacados">
+
+            <div class="mini-card">
+                <span>✦</span>
+                <h3>Fe</h3>
+                <p>
+                    Fortalece tu confianza en Dios
+                    cada día.
+                </p>
+            </div>
+
+            <div class="mini-card">
+                <span>♡</span>
+                <h3>Esperanza</h3>
+                <p>
+                    Encuentra motivos para seguir
+                    adelante.
+                </p>
+            </div>
+
+            <div class="mini-card">
+                <span>☀</span>
+                <h3>Paz</h3>
+                <p>
+                    Tómate un momento para respirar
+                    y reflexionar.
+                </p>
+            </div>
+
+        </section>
+
+
+
+
+
+</section>
+        <section class="youtube-section">
+
+            <p class="etiqueta azul">SÍGUENOS</p>
+
+            <h2>Teoterapia Bíblica en YouTube</h2>
+
+            <p>
+                Encuentra más contenido y acompáñanos
+                también en nuestro canal.
+            </p>
+
+            <a
+                href="https://www.youtube.com/@teoterapiabiblica"
+                target="_blank"
+                class="youtube-button">
+                Visitar canal
+            </a>
+
+        </section>
+
+
+
+</section>
+        <section class="youtube-section">
+
+            <p class="etiqueta azul">WHATSAPP</p>
+
+            <h2>También estamos en WhatsApp</h2>
+
+            <p>
+                Encuéntranos en WhatsApp como
+                Teoterapia Bíblica.
+            </p>
+
+        </section>
+
+    </section>
+
+
+    <section id="login">
+
+        <section class="card login-card">
+
+            <p class="etiqueta azul">ACCESO</p>
+
+            <h2>Administrador</h2>
+
+            <p>
+                Ingresa el PIN para administrar
+                el contenido de la página.
+            </p>
+
+            <input
+                type="password"
+                id="pin"
+                placeholder="Ingresa el PIN">
+
+            <button class="main-button" onclick="login()">
+                Entrar
+            </button>
+
+        </section>
+
+    </section>
+
+
+    <section id="admin">
+
+        <section class="card">
+
+            <p class="etiqueta azul">PANEL</p>
+
+            <h2>Administración</h2>
+
+            <label>Versículo</label>
+            <textarea id="adminVerse"></textarea>
+
+            <label>Referencia</label>
+            <input id="adminReference">
+
+            <label>Reflexión</label>
+            <textarea id="adminReflection"></textarea>
+
+            <label>Oración</label>
+            <textarea id="adminPrayer"></textarea>
+
+            <label>Imagen del día</label>
+            <input
+                id="adminImage"
+                placeholder="URL de la imagen">
+
+            <button class="main-button" onclick="publish()">
+                Guardar cambios
+            </button>
+
+        </section>
+
+    </section>
+
+</main>
+
+<footer>
+
+    <h3>Teoterapia Bíblica</h3>
+
+    <p>
+        Fe para hoy. Esperanza para mañana.
+    </p>
+
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+
+const SUPABASE_URL = "https://muwjbryqjubpsvxjhkwa.supabase.co";
+
+const SUPABASE_KEY = "sb_publishable_J50AGh8g2smD7fhNhPIQTA_Bn78qLmJ";
+
+const supabaseClient = supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
+let contenidoActual = null;
+
+
+function showHome() {
+
+    document.getElementById("home").style.display = "block";
+    document.getElementById("login").style.display = "none";
+    document.getElementById("admin").style.display = "none";
+
+}
+
+
+function showLogin() {
+
+    document.getElementById("home").style.display = "none";
+    document.getElementById("login").style.display = "block";
+    document.getElementById("admin").style.display = "none";
+
+}
+
+
+function login() {
+
+    const pin = document.getElementById("pin").value;
+
+    if (pin === "2026") {
+
+        document.getElementById("login").style.display = "none";
+        document.getElementById("admin").style.display = "block";
+
+        cargarPanel();
+
+    } else {
+
+        alert("PIN incorrecto");
+
+    }
+
+}
+
+
+async function cargarContenido() {
+
+    const { data, error } = await supabaseClient
+        .from("contenido")
+        .select("*")
+        .order("id", { ascending: false })
+        .limit(1);
+
+    if (error) {
+
+        document.getElementById("verseText").textContent =
+            "No se pudo cargar el contenido.";
+
+        console.error(error);
+
+        return;
+    }
+
+    if (data && data.length > 0) {
+
+        contenidoActual = data[0];
+
+        document.getElementById("verseText").textContent =
+            contenidoActual.versiculo;
+
+        document.getElementById("verseReference").textContent =
+            contenidoActual.referencia;
+
+        document.getElementById("reflectionText").textContent =
+            contenidoActual.reflexion;
+
+        document.getElementById("prayerText").textContent =
+            contenidoActual.oracion;
+
+        const imagen = document.getElementById("imagenDia");
+
+        if (contenidoActual.imagen) {
+
+            imagen.src = contenidoActual.imagen;
+            imagen.style.display = "block";
+
+        } else {
+
+            imagen.style.display = "none";
+
+        }
+
+    }
+
+}
+
+
+function cargarPanel() {
+
+    if (!contenidoActual) return;
+
+    document.getElementById("adminVerse").value =
+        contenidoActual.versiculo || "";
+
+    document.getElementById("adminReference").value =
+        contenidoActual.referencia || "";
+
+    document.getElementById("adminReflection").value =
+        contenidoActual.reflexion || "";
+
+    document.getElementById("adminPrayer").value =
+        contenidoActual.oracion || "";
+
+    document.getElementById("adminImage").value =
+        contenidoActual.imagen || "";
+
+}
+
+
+async function publish() {
+
+    if (!contenidoActual) return;
+
+    const nuevoContenido = {
+
+        versiculo: document.getElementById("adminVerse").value,
+
+        referencia: document.getElementById("adminReference").value,
+
+        reflexion: document.getElementById("adminReflection").value,
+
+        oracion: document.getElementById("adminPrayer").value,
+
+        imagen: document.getElementById("adminImage").value
+
+    };
+
+    const { error } = await supabaseClient
+        .from("contenido")
+        .update(nuevoContenido)
+        .eq("id", contenidoActual.id);
+
+    if (error) {
+
+        alert("No se pudieron guardar los cambios.");
+
+        console.error(error);
+
+        return;
+
+    }
+
+    contenidoActual = {
+        ...contenidoActual,
+        ...nuevoContenido
+    };
+
+    document.getElementById("verseText").textContent =
+        nuevoContenido.versiculo;
+
+    document.getElementById("verseReference").textContent =
+        nuevoContenido.referencia;
+
+    document.getElementById("reflectionText").textContent =
+        nuevoContenido.reflexion;
+
+    document.getElementById("prayerText").textContent =
+        nuevoContenido.oracion;
+
+    const imagen = document.getElementById("imagenDia");
+
+    if (nuevoContenido.imagen) {
+
+        imagen.src = nuevoContenido.imagen;
+        imagen.style.display = "block";
+
+    } else {
+
+        imagen.style.display = "none";
+
+    }
+
+    alert("Contenido actualizado!");
+
+}
+
+
+showHome();
+
+cargarContenido();
+
+</script>
+
+</section>
+<section class="card pastores">
+
+    <p class="etiqueta azul">NUESTRO EQUIPO</p>
+
+    <h2>Nuestros pastores</h2>
+
+    <p>
+        Conoce a las personas que acompañan
+        y guían nuestra comunidad de fe.
+    </p>
+
+    <div class="pastor-card">
+
+       <img src="./foto.jpg" class="pastor-foto" alt="Pastor Hermes Bustos">
+
+        <h3>Pastor Hermes Bustos</h3>
+
+        <h4>Pacto Profético</h4>
+
+        <p>
+            El Pastor Hermes Bustos dirige el ministerio
+            Pacto Profético, dedicado a compartir la fe,
+            orientar espiritualmente y acompañar a las
+            personas en su crecimiento y relación con Dios.
+        </p>
+
+    </div>
+
+</section>
+</body>
+</html>
